@@ -35,6 +35,61 @@ Z powodu, że tabela eliminacje jest tabelą pomocniczą to oprócz agregowania 
 Można uzyskać informację czy dany uczestnik był w półfinale i czy zakwalifikował się dalej. Zatem relacja pomiędzy tabelą wyniki a eliminacje informuje, że jeden wynik, może być przypisany do kilku etapów eliminacji, tak samo relacja pomiędzy uczestnikami a eliminacjami, gdzie jeden uczestnik może wziąć udział w kilku etapach eliminacji.
 
 
+#### Przykładowe zapytania z grupy DDL
+
+Tworzenie tabeli 'roczniki' z kluczem głównym rok_id
+
+```sql
+CREATE TABLE roczniki (
+    rok_id int NOT NULL AUTO_INCREMENT,
+    rok int,
+    slogan varchar (50),
+    miasto_host varchar (50),
+    uczestnik_id int,
+    piosenka_id int, 
+
+    PRIMARY KEY(rok_id)
+);
+```
+
+Tworzenie tabeli 'uczestnicy' z gluczem głównym uczestnik_id 
+```sql
+CREATE TABLE uczestnicy (
+    uczestnik_id int NOT NULL AUTO_INCREMENT,
+    uczestnik varchar (50),
+    kraj_id int,
+    piosenka_id int,
+    rok_id int,
+
+    PRIMARY KEY(uczestnik_id)
+);
+```
+
+Tworzenie tabeli pomocniczej 'eliminacje'
+```sql
+CREATE TABLE eliminacje (
+    eliminacje_id int NOT NULL AUTO_INCREMENT,
+    etap varchar (50),
+    uczestnik_id int,
+    wynik_id int,
+    daty_id int,
+    rok_id int,
+
+    PRIMARY KEY(eliminacje_id)
+);
+```
+
+
+Dołączenie do tabeli 'uczestnicy' kluczy obcych rok_id oraz kraj_id
+```sql
+ALTER TABLE uczestnicy ADD CONSTRAINT uczestnik_rocznik_fk FOREIGN KEY(rok_id) REFERENCES roczniki(rok_id);
+
+ALTER TABLE uczestnicy ADD CONSTRAINT uczestnik_kraj_fk FOREIGN KEY(kraj_id) REFERENCES kraje(kraj_id);
+```
+
+
+
+
 ## Implementacja zapytań SQL
 Tutaj należy wylistować wszystkie funkcjonalności, wraz z odpowiednimi zapytaniami SQL. W tej sekcji należy zawrzeć wyłącznie zapytania z grupy DML oraz DQL.
 
