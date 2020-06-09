@@ -1,5 +1,5 @@
-# Temat projektu
-Projekt bazy eurowizji wykonany w ramach ćwiczeń projektowych z Baz Danych.
+# Eurowizja
+Tematem projektu jest eurowizja. Projekt bazy eurowizji został wykonany w ramach ćwiczeń projektowych z Baz Danych.
 
 | Nazwisko i imię        | Wydział | Kierunek | Semestr | Grupa | Rok akademicki |
 | :--------------------: | :-----: | :------: | :-----: | :---: | :------------: |
@@ -7,8 +7,8 @@ Projekt bazy eurowizji wykonany w ramach ćwiczeń projektowych z Baz Danych.
 | Kocurek Magdalena      | WIMiIP  | IS       |   4     | 3     | 2019/2020      |
 
 ## Projekt bazy danych
-Tutaj ma znaleźć się opis projektu bazy danych. Na wstępie proszę zagnieździć obraz schematu w formie wektorowej, najlepiej plik SVG. Dodatkowo, w tej sekcji należy zawrzeć kilka przykładowych zapytań tworzących (lub w razie konieczności, modyfikujących) tabelę, tj. grupa DDL.
 
+DIAGRAM ERD - Eurowizja 2017-2019
 ![eurowizja diagram](Eurowizja.svg)
 
 Baza danych eurowizja pozwala na znalezienie informacji o uczestnikach konkursu: kto i kiedy brał udział, z jakiego kraju pochodzi, co zaśpiewał, czy był w półfinałach, ile punktów otrzymał w każdym etapie eliminacji, kto wygrał. Dodatkowo z bazy można się dowiedzieć: w jakim mieście odbywał sie konkurs, jaki slogan był w danym roku oraz dokładne daty kiedy odbywały się wszystkie eliminacje.
