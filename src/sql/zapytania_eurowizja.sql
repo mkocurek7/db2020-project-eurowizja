@@ -444,4 +444,3 @@ INNER JOIN eliminacje
 ON eliminacje.wynik_id = wyniki.wynik_id
 WHERE eliminacje.rok_id = 1
 AND eliminacje.etap = 'finał');
-
