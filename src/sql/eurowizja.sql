@@ -257,8 +257,6 @@ ALTER TABLE uczestnicy ADD CONSTRAINT uczestnik_kraj_fk FOREIGN KEY(kraj_id) REF
 
 ALTER TABLE piosenki ADD CONSTRAINT piosenka_rocznik_fk FOREIGN KEY(rok_id) REFERENCES roczniki(rok_id);
 
-ALTER TABLE roczniki ADD CONSTRAINT rocznik_kraj_fk FOREIGN KEY(kraj_id) REFERENCES kraje(kraj_id);
-
 ALTER TABLE daty ADD CONSTRAINT daty_rocznik_fk FOREIGN KEY(rok_id) REFERENCES roczniki(rok_id);
 
 ALTER TABLE eliminacje ADD CONSTRAINT eliminacje_uczestnik_fk FOREIGN KEY(uczestnik_id) REFERENCES uczestnicy(uczestnik_id);
