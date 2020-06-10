@@ -1,5 +1,5 @@
 # Temat projektu
-Tematem projektu jest eurowizja. Projekt bazy eurowizji został wykonany w ramach ćwiczeń projektowych z Baz Danych.
+Tematem projektu jest Eurowizja. Projekt bazy Eurowizji został wykonany w ramach ćwiczeń projektowych z Baz Danych.
 
 | Nazwisko i imię        | Wydział | Kierunek | Semestr | Grupa | Rok akademicki |
 | :--------------------: | :-----: | :------: | :-----: | :---: | :------------: |
@@ -22,10 +22,10 @@ Jednemu uczestnikowi konkursu przypisana jest konkretnie jedna piosenka co przed
 
 Do jednego uczestnika przypisany jest konkretnie jeden kraj, ale z powodu, że konkurs odbywa się co roku to jeden kraj może być przypisany do wielu uczestników (zostało to zaprezentowane za pomocą relacji jeden do wielu pomiędzy tabelą kraje a uczestnicy).
 
-Tabela roczniki zawiera informacje odnośnie roku, w którym odbywała się eurowizja, czyli jaki był slogan konkursu w danym roku, w jakim mieście odbywał się konkurs, kto zwyciężył i jaką piosenką.
+Tabela roczniki zawiera informacje odnośnie roku, w którym odbywała się Eurowizja, czyli jaki był slogan konkursu w danym roku, w jakim mieście odbywał się konkurs, kto zwyciężył i jaką piosenką.
 Relacja jeden do wielu między tabelami roczniki a piosenki przedstawia, że dana piosenka może wygrać tylko w jednym roku, ale wiele piosenek może być wykonanych w konkretnym roku. 
 
-W przypdaku relacji tabel roczniki - uczestnicy (relacja jeden do wielu) w jednym roku może wziąć udział wielu uczestników, ale tylko jeden uczestnik może wygrać w danym roku. 
+W przypadku relacji tabel roczniki - uczestnicy (relacja jeden do wielu) w jednym roku może wziąć udział wielu uczestników, ale tylko jeden uczestnik może wygrać w danym roku. 
 
 Połączenie tabeli roczniki i daty relacją jeden do wielu obrazuję, że w danym roku może być kilka daty (data połfinału 1, półfinału 2 i finału), a jedna data może wystąpić w konkretnie jednym roku.
 
@@ -121,7 +121,7 @@ INSERT INTO uczestnicy (uczestnik, kraj_id, rok_id, piosenka_id) VALUES
 ('Alma', '30', '1', '41'), ('Fusedmarc', '21', '1', '42');
 ```
 
-3. Zmiana danyc w tabeli "roczniki" (zmiana z NULL na konkretną wartość)
+3. Zmiana danych w tabeli "roczniki" (zmiana z NULL na konkretną wartość)
 ```sql
 UPDATE roczniki SET uczestnik_id = 26 WHERE rok_id = 1;
 UPDATE roczniki SET piosenka_id = 26 WHERE rok_id = 1;
@@ -136,7 +136,7 @@ UPDATE roczniki SET piosenka_id = 112 WHERE rok_id = 3;
 
 ### Zapytania grupy DQL - funkcjonalności
 #### Pierwszy poziom zapytań - ogólne, bez poziału na lata
-1. Zwycięzcy eurowizje w latach 2017-2019
+1. Zwycięzcy Eurowizji w latach 2017-2019
 ```sql
 SELECT 
     uczestnicy.uczestnik,
@@ -149,7 +149,7 @@ INNER JOIN piosenki
 ON piosenki.piosenka_id=roczniki.piosenka_id
 ```
 
-2. Ilość uczestników eurowizji w poszczególnych latach (2017 - 2019)
+2. Ilość uczestników Eurowizji w poszczególnych latach (2017 - 2019)
 ```sql
 SELECT
 	roczniki.rok,
@@ -316,7 +316,7 @@ FROM eliminacje
 WHERE eliminacje.etap = 'finał' AND eliminacje.rok_id = 1
 ```
 
-9. Ilość uczestników eurowizji rok 2017
+9. Ilość uczestników Eurowizji rok 2017
 ```sql
 SELECT 
 	COUNT(uczestnicy.uczestnik) AS ilość_uczestników
@@ -438,7 +438,7 @@ DRZEWO INTERAKCJI
     // break
 ```
 
-W zależności od wyboru użytkownika wywoływana jest konkretna interakcja. Po każdej interakcji użytkownik otrzymuje pytanie, czy chce nadal korzystać z programu, czy zakończyć jego działanie. Wybranie przez użytkownika zakończenia działania programu przerywa nieskończoną pętle i kończy działanie programu.
+W zależności od wyboru dokonanego przez użytkownika wywoływana jest konkretna interakcja. Po każdej interakcji użytkownik otrzymuje pytanie, czy chce nadal korzystać z programu, czy zakończyć jego działanie. Wybranie przez użytkownika zakończenia działania programu przerywa nieskończoną pętle i kończy działanie programu.
 
 ## Dodatkowe uwagi
 Aby pokazać pełne możliwości bazy danych, zaimplementowano wszystkie potrzebne wiadomości z ostatnich trzech lat konkursu. Dzięki temu można uzyskać prawdziwe informacje o tym jak wyglądał konkurs.
