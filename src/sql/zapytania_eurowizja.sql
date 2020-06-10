@@ -168,7 +168,36 @@ WHERE daty.rok_id=3
 ORDER By daty.daty_id;
 
 
+-- 4 Pokaz wszystkich uczestników posortowanych alfabetycznie 
+-- ROK 2017
+SELECT 
+	uczestnicy.uczestnik,
+   	kraje.kraj
+FROM uczestnicy
+LEFT JOIN kraje
+ON kraje.kraj_id=uczestnicy.kraj_id
+WHERE uczestnicy.rok_id=1
+ORDER BY uczestnicy.uczestnik;
 
+-- ROK 2018
+SELECT 
+	uczestnicy.uczestnik,
+   	kraje.kraj
+FROM uczestnicy
+LEFT JOIN kraje
+ON kraje.kraj_id=uczestnicy.kraj_id
+WHERE uczestnicy.rok_id=2
+ORDER BY uczestnicy.uczestnik;
+
+-- ROK 2019
+SELECT 
+	uczestnicy.uczestnik,
+   	kraje.kraj
+FROM uczestnicy
+LEFT JOIN kraje
+ON kraje.kraj_id=uczestnicy.kraj_id
+WHERE uczestnicy.rok_id=3
+ORDER BY uczestnicy.uczestnik;
 
 
 
@@ -220,8 +249,52 @@ WHERE uczestnicy.rok_id = 3
 AND eliminacje.etap = 'półfinał 1';
 
 
+-- 6 Kto byl w półfinale 2
+-- rok 2017
+SELECT
+	roczniki.rok,
+    uczestnicy.uczestnik,
+    kraje.kraj
+FROM uczestnicy
+INNER JOIN roczniki
+ON roczniki.rok_id=uczestnicy.rok_id
+INNER JOIN kraje
+ON kraje.kraj_id=uczestnicy.kraj_id
+INNER JOIN eliminacje
+ON eliminacje.uczestnik_id=uczestnicy.uczestnik_id
+WHERE uczestnicy.rok_id = 1
+AND eliminacje.etap = 'półfinał 2';
+
+-- rok 2018
+SELECT
+	roczniki.rok,
+    uczestnicy.uczestnik,
+    kraje.kraj
+FROM uczestnicy
+INNER JOIN roczniki
+ON roczniki.rok_id=uczestnicy.rok_id
+INNER JOIN kraje
+ON kraje.kraj_id=uczestnicy.kraj_id
+INNER JOIN eliminacje
+ON eliminacje.uczestnik_id=uczestnicy.uczestnik_id
+WHERE uczestnicy.rok_id = 2
+AND eliminacje.etap = 'półfinał 2';
 
 
+-- rok 2019
+SELECT
+	roczniki.rok,
+    uczestnicy.uczestnik,
+    kraje.kraj
+FROM uczestnicy
+INNER JOIN roczniki
+ON roczniki.rok_id=uczestnicy.rok_id
+INNER JOIN kraje
+ON kraje.kraj_id=uczestnicy.kraj_id
+INNER JOIN eliminacje
+ON eliminacje.uczestnik_id=uczestnicy.uczestnik_id
+WHERE uczestnicy.rok_id = 3
+AND eliminacje.etap = 'półfinał 2';
 
 
 -- 7 Kto byl w finale
@@ -272,6 +345,45 @@ WHERE uczestnicy.rok_id = 3
 AND eliminacje.etap = 'finał';
 
 
+-- 8 ilość uczestników półfinału1, półfinału2 i finału
+-- rok 2017
+SELECT 
+	COUNT(eliminacje.etap) AS ilość_uczestników
+FROM eliminacje
+WHERE eliminacje.etap = 'półfinał 1' AND eliminacje.rok_id = 1
+UNION ALL
+SELECT 
+	COUNT(eliminacje.etap) AS ilość_uczestników
+FROM eliminacje
+WHERE eliminacje.etap = 'półfinał 2' AND eliminacje.rok_id = 1
+UNION ALL
+SELECT 
+	COUNT(eliminacje.etap) AS ilość_uczestników
+FROM eliminacje
+WHERE eliminacje.etap = 'finał' AND eliminacje.rok_id = 1
 
+
+
+
+
+
+
+-- 10
+-- sprawdz czy uczestnik dostal sie do finalu
+-- wyswietlam wszystkich uczestnikow w danym roku
+SELECT 
+	uczestnicy.uczestnik
+FROM uczestnicy
+WHERE uczestnicy.rok_id = 1;
+
+-- podaje uczestnika
+SELECT
+	COUNT(uczestnicy.uczestnik) as punkt
+FROM uczestnicy
+INNER JOIN eliminacje
+ON eliminacje.uczestnik_id = uczestnicy.uczestnik_id
+WHERE uczestnicy.uczestnik = 'Kasia Moś'
+AND eliminacje.etap = 'finał'
+AND eliminacje.rok_id = 1;
 
 
