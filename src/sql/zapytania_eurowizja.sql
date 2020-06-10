@@ -200,7 +200,6 @@ WHERE uczestnicy.rok_id=3
 ORDER BY uczestnicy.uczestnik;
 
 
-
 -- 5 Kto byl w półfinale 1
 -- rok 2017
 SELECT
@@ -363,9 +362,24 @@ FROM eliminacje
 WHERE eliminacje.etap = 'finał' AND eliminacje.rok_id = 1
 
 
+-- 9
+--ilosc uczestnikow eurowizji rok 2017
+SELECT 
+	COUNT(uczestnicy.uczestnik) AS ilość_uczestników
+FROM uczestnicy
+WHERE rok_id=1;
 
+--ilosc uczestnikow eurowizji rok 2018
+SELECT 
+	COUNT(uczestnicy.uczestnik) AS ilość_uczestników
+FROM uczestnicy
+WHERE rok_id=2;
 
-
+--ilosc uczestnikow eurowizji rok 2019
+SELECT 
+	COUNT(uczestnicy.uczestnik) AS ilość_uczestników
+FROM uczestnicy
+WHERE rok_id=3;
 
 
 -- 10
@@ -386,4 +400,48 @@ WHERE uczestnicy.uczestnik = 'Kasia Moś'
 AND eliminacje.etap = 'finał'
 AND eliminacje.rok_id = 1;
 
+
+-- 11
+-- pokaz kto miał największą liczbę punktów a kto najmniejszą w finale
+
+-- najwieksza
+
+SELECT
+	uczestnicy.uczestnik,
+    	wyniki.punkty as max_wynik,
+    	eliminacje.etap
+FROM uczestnicy
+INNER JOIN eliminacje
+ON eliminacje.uczestnik_id = uczestnicy.uczestnik_id
+INNER JOIN wyniki
+ON eliminacje.wynik_id = wyniki.wynik_id
+WHERE eliminacje.rok_id = 1
+AND wyniki.punkty IN 
+(SELECT 
+	MAX(wyniki.punkty)
+FROM wyniki
+INNER JOIN eliminacje
+ON eliminacje.wynik_id = wyniki.wynik_id
+WHERE eliminacje.rok_id = 1
+AND eliminacje.etap = 'finał');
+
+-- najmniejsza
+SELECT
+	uczestnicy.uczestnik,
+    	wyniki.punkty as min_wynik,
+   	eliminacje.etap
+FROM uczestnicy
+INNER JOIN eliminacje
+ON eliminacje.uczestnik_id = uczestnicy.uczestnik_id
+INNER JOIN wyniki
+ON eliminacje.wynik_id = wyniki.wynik_id
+WHERE eliminacje.rok_id = 1
+AND wyniki.punkty IN 
+(SELECT 
+	MIN(wyniki.punkty)
+FROM wyniki
+INNER JOIN eliminacje
+ON eliminacje.wynik_id = wyniki.wynik_id
+WHERE eliminacje.rok_id = 1
+AND eliminacje.etap = 'finał');
 
