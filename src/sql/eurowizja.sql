@@ -71,7 +71,7 @@ CREATE TABLE daty (
     PRIMARY KEY(daty_id)
 );
 
-INSERT INTO roczniki (rok, slogan, miasto_host, kraj_id) VALUES ('2017', 'Celebrate Diversity', 'Kijów','18'), ('2018', 'All Aboard!', 'Lizbona', '25'), ('2019', 'Dare to Dream', 'Tel Awiw-Jafa', '39');
+INSERT INTO roczniki (rok, slogan, miasto_host) VALUES ('2017', 'Celebrate Diversity', 'Kijów'), ('2018', 'All Aboard!', 'Lizbona'), ('2019', 'Dare to Dream', 'Tel Awiw-Jafa');
 
 -- półfinał 1
 INSERT INTO eliminacje (etap, uczestnik_id, wynik_id, rok_id, daty_id) VALUES
