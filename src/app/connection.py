@@ -12,7 +12,6 @@ sql=" USE eurowizja"
 sql1=" SELECT uczestnicy.uczestnik, piosenki.tytul, roczniki.rok FROM roczniki INNER JOIN uczestnicy ON uczestnicy.uczestnik_id=roczniki.uczestnik_id INNER JOIN piosenki ON piosenki.piosenka_id=roczniki.piosenka_id;"
 sql2=" SELECT roczniki.rok, COUNT(uczestnicy.uczestnik) AS ilosc_uczestnikow FROM uczestnicy INNER JOIN roczniki ON uczestnicy.rok_id=roczniki.rok_id GROUP BY uczestnicy.rok_id;"
 sql3=" SELECT uczestnicy.uczestnik, piosenki.tytul, piosenki.jezyk FROM uczestnicy INNER JOIN piosenki ON uczestnicy.piosenka_id=piosenki.piosenka_id WHERE piosenki.jezyk != 'angielski' "
-sql4=" SELECT uczestnicy.uczestnik, piosenki.tytul, piosenki.jezyk FROM uczestnicy INNER JOIN piosenki ON uczestnicy.piosenka_id=piosenki.piosenka_id WHERE piosenki.jezyk != 'angielski' "
 
 # dla 2019
 sql1_1=" SELECT wyniki.punkty, uczestnicy.uczestnik, piosenki.tytul, piosenki.jezyk, kraje.kraj FROM uczestnicy INNER JOIN eliminacje ON eliminacje.uczestnik_id=uczestnicy.uczestnik_id INNER JOIN piosenki ON piosenki.piosenka_id=uczestnicy.piosenka_id INNER JOIN kraje ON kraje.kraj_id=uczestnicy.kraj_id INNER JOIN wyniki ON wyniki.wynik_id=eliminacje.wynik_id WHERE uczestnicy.rok_id=3 AND eliminacje.etap = 'finał' ORDER BY wyniki.punkty DESC LIMIT 3"
