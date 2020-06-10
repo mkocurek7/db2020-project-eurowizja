@@ -192,8 +192,8 @@ try :
 						punkt=record[0]
 
 
-					if	punkt== 1:
-    						print("\nUczestnik dostał się do finału")	
+					if punkt== 1:
+						print("\nUczestnik dostał się do finału")	
 					elif punkt== 0:
     						print("\nUczestnika nie ma w finale")
 							
@@ -208,3 +208,107 @@ try :
 					cursor.execute( sql1_11b )
 					results=cursor.fetchall()
 					print(tabulate(results,headers= ["Uczestnik", "Punkty Min", "Etap"], tablefmt='psql'))
+					
+			elif rok=='2018':
+    				print("\n********************** EUROWIZJA 2018 **********************\n")
+				print("1. Pokaż pierwszą trójkę")
+				print("2. Pokaż slogan i miasto goszczące")
+				print("3. Kiedy odbył się półfinał 1, półfinał 2 oraz finał?")
+				print("4. Pokaż wszystkich uczestników w kolejności alfabetycznej. ")
+				print("5. Kto był w półfinale 1? ")
+				print("6. Kto był w półfinale 2? ")
+				print("7. Kto był w finale? ")
+				print("8. Ile było uczestników półfinału 1, półfinału 2, finału?")
+				print("9. Ile było uczestników Eurowizji? ")
+				print("10. Sprawdz, czy uczestnik dostał się do finału")
+				print("11. Pokaz kto miał największą i najmniejszą liczbę punktów w finale")
+
+				wybor1=input("\nWybór opcji: ")
+				if wybor1=='1':	
+					print("\n*********************************** PIERWSZA TROJKA ***********************************\n")
+					cursor.execute( sql2_1)
+					results=cursor.fetchall()
+					print(tabulate(results,headers= ["Zdobyte punkty", "Uczestnik", "Tytuł piosenki", "Język", "Kraj"], tablefmt='psql'))
+
+				elif wybor1=='2':
+					print("\n*************************** SLOGAN I MIASTO GOSZCZĄCE ****************************\n")
+					cursor.execute( sql2_2)
+					results=cursor.fetchall()
+
+					print(tabulate(results,headers= ["Rok", "Miasto goszczące", "Slogan"], tablefmt='psql'))
+
+				elif wybor1=='3':
+					print("\n******************* DATY *******************\n")
+					cursor.execute( sql2_3)
+					results=cursor.fetchall()
+					print(tabulate(results,headers= ["Data", "Rok", "Kraj"], tablefmt='psql'))
+		
+				elif wybor1=='4':
+					print("\n**************************************** UCZESTNICY EUROWIZJI *****************************************\n")
+					cursor.execute( sql2_4 )
+					results=cursor.fetchall()
+					print(tabulate(results,headers= ["Uczestnik", "Kraj"], tablefmt='psql'))
+
+				elif wybor1=='5':
+					print("\n******************************* PÓŁFINAL NR.1 ******************************\n")
+					cursor.execute( sql2_5 )
+					results=cursor.fetchall()
+					print(tabulate(results,headers= ["Rok", "Uczestnik", "Kraj"], tablefmt='psql'))
+
+				elif wybor1=='6':
+					print("\n******************************* PÓŁFINAL NR.2 *******************************\n")
+					cursor.execute( sql2_6 )
+					results=cursor.fetchall()
+					print(tabulate(results,headers= ["Rok", "Uczestnik", "Kraj"], tablefmt='psql'))
+
+				elif wybor1=='7':
+					print("\n******************************** FINAŁ **********************************\n")
+					cursor.execute( sql2_7 )
+					results=cursor.fetchall()
+					print(tabulate(results,headers= ["Rok", "Uczestnik", "Kraj"], tablefmt='psql'))
+
+				elif wybor1=='8':
+					print("\n************ ILOŚĆ UCZESTNIKÓW ELIMINACJI ************\n")
+					cursor.execute( sql2_8 )
+					results=cursor.fetchall()
+					counter = 0
+					print(tabulate(results,headers= ["Ilosc uczestnikow"], tablefmt='psql'))
+
+				elif wybor1=='9':
+					print("************ ILOŚĆ UCZESTNIKÓW EUROWIZJI ************")
+					cursor.execute( sql2_9 )
+					results=cursor.fetchall()
+					for record in results :
+						ilosc_uczestnikow=record[0]
+						print("\nW Eurowizji wzielo udzial ",ilosc_uczestnikow, " uczestnikow.")
+
+				elif wybor1=='10':
+					print("\n************ CZY UCZESTNIK JEST W FINALE ************\n")
+					cursor.execute( sql2_10 )
+					results=cursor.fetchall()
+					print(tabulate(results,headers= ["Uczestnicy"], tablefmt='psql'))
+
+					uczestnik_input = input("\nPodaj uczestnika z listy: ")
+					cursor.execute( " SELECT COUNT(uczestnicy.uczestnik) as punkt FROM uczestnicy INNER JOIN eliminacje ON eliminacje.uczestnik_id = uczestnicy.uczestnik_id WHERE uczestnicy.uczestnik = %s AND eliminacje.etap = 'finał' AND eliminacje.rok_id = 2", [uczestnik_input] )
+					results=cursor.fetchall()
+					for record in results :
+						punkt=record[0]
+
+					if	punkt== 1:
+    						print("\nUczestnik dostał się do finału")	
+					elif punkt== 0:
+    						print("\nUczestnika nie ma w finale")
+							
+
+				elif wybor1=='11':
+					print("\n************ NAJWIĘKSZY i NAJMNIEJSZY WYNIK ************\n")
+
+					cursor.execute( sql2_11a )
+					results=cursor.fetchall()
+					print(tabulate(results,headers= ["Uczestnik", "Punkty Max", "Etap"], tablefmt='psql'))
+
+					cursor.execute( sql2_11b )
+					results=cursor.fetchall()
+					print(tabulate(results,headers= ["Uczestnik", "Punkty Min", "Etap"], tablefmt='psql'))
+				
+				
