@@ -107,4 +107,30 @@ ORDER BY wyniki.punkty DESC
 LIMIT 3;
 
 
+-- 2
+-- Slogan i miasto goszczące finału  (proste przeszukanie jednej tabeli)                                              
+-- rok 2017
+SELECT 
+	roczniki.rok,
+    roczniki.miasto_host,
+    roczniki.slogan
+FROM roczniki
+WHERE roczniki.rok_id = 1;
+
+-- rok 2018
+SELECT 
+	roczniki.rok,
+    roczniki.miasto_host,
+    roczniki.slogan
+FROM roczniki
+WHERE roczniki.rok_id = 2;
+
+
+-- rok 2019
+SELECT 
+	roczniki.rok,
+    roczniki.miasto_host,
+    roczniki.slogan
+FROM roczniki
+WHERE roczniki.rok_id = 3;
 
