@@ -294,7 +294,7 @@ try :
 					for record in results :
 						punkt=record[0]
 
-					if	punkt== 1:
+					if punkt== 1:
     						print("\nUczestnik dostał się do finału")	
 					elif punkt== 0:
     						print("\nUczestnika nie ma w finale")
@@ -412,3 +412,19 @@ try :
 					cursor.execute( sql3_11b )
 					results=cursor.fetchall()
 					print(tabulate(results,headers= ["Uczestnik", "Punkty Min", "Etap"], tablefmt='psql'))	
+
+		elif wybor == '6':	
+		print("\nProgram zakończył swoje działanie. Do widzenia\n")		
+		break
+
+		decyzja = input("\nChcesz kontynuować działanie programu? (t/n) ")
+		if decyzja in ['t', 'T', 'tak', 'Tak','TAK']:
+			print("Kontynuuje działanie programu\n")
+		elif decyzja in ['n', 'N', 'nie', 'Nie', 'NIE']:
+			break
+
+except Exception as e:
+	print("Exception: ", e)
+
+connection.close()
+				
