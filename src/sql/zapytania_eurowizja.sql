@@ -345,6 +345,8 @@ AND eliminacje.etap = 'finał';
 
 
 -- 8 ilość uczestników półfinału1, półfinału2 i finału
+-- zapytanie dla poszczególnych roczników rózni się wartością eliminacje.rok_id
+-- dla 2019 rok_id=3 , dla 2018 rok_id=2, dla 2017 rok_id=1
 -- rok 2017
 SELECT 
 	COUNT(eliminacje.etap) AS ilość_uczestników
