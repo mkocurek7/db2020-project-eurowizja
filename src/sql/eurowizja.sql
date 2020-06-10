@@ -178,10 +178,17 @@ INSERT INTO uczestnicy (uczestnik, kraj_id, rok_id, piosenka_id) VALUES
 ('Alma', '30', '1', '41'), ('Fusedmarc', '21', '1', '42');
 
 
-
-
-
-
+/* uczestnicy rok 2018 */
+INSERT INTO uczestnicy (uczestnik, kraj_id, rok_id, piosenka_id) VALUES
+('Aisel', '1', '2', '43'), ("Ari Olafsson", '2', '2', '44'), ('Sennek', '3', '2', '45'), ('Alekseev', '4', '2', '46'), ('Eye Cue', '5', '2', '47'), 
+('Franka', '6', '2', '48'), ('Yianna Terzi', '7', '2', '49'), ('Sevak Khanagyan', '8', '2', '50'), ('ZiBBZ', '9', '2', '51'), ('The Humans', '10', '2', '52'), 
+('Jessika feat. Jenifer Brening', '11', '2', '53'), ('Julia Samoylova', '12', '2', '54'), ('Ethno-Jazz Band Iriao', '13', '2', '55'), ('Gromee feat. Lukas Meijer', '14', '2', '56'), ('Christabelle', '15', '2', '57'), 
+('Laura Rizzotto', '16', '2', '58'), ('Vanja Radovanovic', '17', '2', '59'), ('Mélovin', '18', '2', '60'), ('Amaia & Alfred', '19', '2', '61'), ('Lea Sirk', '20', '2', '62'), 
+('Ieva Zasimauskaitė', '21', '2', '63'), ('Cesár Sampson', '22', '2', '64'), ('Elina Nechayeva', '23', '2', '65'), ('Alexander Rybak', '24', '2', '66'), ('Cláudia Pascoal', '25', '2', '67'), 
+('SuRie', '26', '2', '68'), ('Sanja Ilic & Balkanika', '27', '2', '69'), ('Michael Schulte', '28', '2', '70'), ('Eugent Bushpepa', '29', '2', '71'), ('Madame Monsieur', '30', '2', '72'), 
+('Mikolas Josef', '31', '2', '73'), ('Rasmussen', '32', '2', '74'), ('Jessica Mauboy', '33', '2', '75'), ('Saara Aalto', '34', '2', '76'), ('Equinox', '35', '2', '77'), 
+('DoReDoS', '36', '2', '78'), ('Benjamin Ingrosso', '37', '2', '79'), ('AWS', '38', '2', '80'), ('Netta', '39', '2', '81'), ('Waylon', '40', '2', '82'), 
+('Ryan O.Shaughnessy', '41', '2', '83'), ('Eleni Foureira', '42', '2', '84'), ('Ermal Meta & Fabrizio Moro', '43', '2', '85');
 
 
 /* uczestnicy rok 2019 */
@@ -197,10 +204,17 @@ INSERT INTO uczestnicy (uczestnik, kraj_id, rok_id, piosenka_id) VALUES
 ('Miki', '19', '3', '126');
 
 
-
-
-
-
+/* piosenki rok 2017 */
+INSERT INTO piosenki (tytul, jezyk, uczestnik_id, rok_id) VALUES
+('Keep the Faith', 'angielski', '1', '1'), ('World', 'angielski', '2', '1'), ("Space", 'angielski', '3', '1'), ("Blackbird", 'angielski', '4', '1'), ("Paper", 'angielski', '5', '1'), 
+("My Turn", 'angielski', '6', '1'), ("On My Way", 'angielski', '7', '1'), ("Line", 'angielski', '8', '1'), ("In Too Deep", 'angielski', '9', '1'), ("Dance Alone", 'angielski', '10', '1'), 
+("Breathlessly", 'angielski', '11', '1'), ("Dying to Try", 'angielski', '12', '1'), ("Spirit of the Night", 'angielski', '13', '1'), ("Apollo", 'angielski', '14', '1'), ("Verona", 'angielski', '15', '1'), 
+("I Feel Alive", 'angielski', '16', '1'), ("Flashlight", 'angielski', '17', '1'), ("Story of My Life", 'białorusiński', '18', '1'), ("Running on Air", 'angielski', '19', '1'), ("Fly with Me", 'angielski', '20', '1'), 
+("Lights and Shadows", 'angielski', '21', '1'), ("Hey, Mamma!", 'angielski', '22', '1'), ("Origo", 'węgierski', '23', '1'), ("Occidentali s Karma", 'włoski', '24', '1'), ("Where I Am", 'angielski', '25', '1'), 
+("Amar pelos dois", 'portugalski', '26', '1'), ("Skeletons", 'angielski', '27', '1'), ("My Friend", "angielski, włoski", '28', '1'), ("Don t Come Easy", 'angielski', '29', '1'), ("This Is Love", 'angielski', '30', '1'), 
+('Do It for Your Lover', "hiszpański, angielski", '31', '1'), ("Grab the Moment", 'angielski', '32', '1'), ("Never Give Up on You", 'angielski', '33', '1'), ("Gravity", 'angielski', '34', '1'), ("Yodel It!", 'angielski', '35', '1'), 
+("Perfect Life", 'angielski', '36', '1'), ("Time", 'angielski', '37', '1'), ("City Lights", 'angielski', '38', '1'), ("I Can t Go On", 'angielski', '39', '1'), ("Beautiful Mess", 'angielski', '40', '1'), 
+("Requiem", "francuski,  angielski", '41', '1'), ("Rain of Revolution", 'angielski', '42', '1');
 
 
 /* piosenki 2018 */
@@ -216,11 +230,17 @@ INSERT INTO piosenki (tytul, jezyk, uczestnik_id, rok_id) VALUES
 ('Together', 'angielski', '83', '2'), ("Fuego", 'angielski', '84', '2'), ("Non mi avete fatto niente", 'włoski', '85', '2');
 
 
-
-
-
-
-
+/* piosenki 2019 */
+INSERT INTO piosenki (tytul, jezyk, uczestnik_id, rok_id) VALUES
+("Heaven", 'angielski', '86', '3'), ("Look Away", 'angielski', '87', '3'), ("Fire of Love (Pali się)", "polski,  angielski", '88', '3'), ('Az én apám', 'węgierski', '89', '3'), ('Wake Up', 'angielski', '90', '3'), 
+('Keep on Going', 'gruziński', '91', '3'), ('Telemóveis', 'portugalski', '92', '3'), ('Walking Out', 'angielski', '93', '3'), ("22", 'angielski', '94', '3'), ('Stay', 'angielski', '95', '3'), 
+('That Night', 'angielski', '96', '3'), ('On a Sunday', 'angielski', '97', '3'), ('Limits', 'angielski', '98', '3'), ('The Dream', 'angielski, chorwacji', '99', '3'),  ('Run with the Lions', 'angielski', '100', '3'), 
+('Chameleon', 'angielski', '101', '3'), ('Ktheju tokës', 'albański', '102', '3'), ('Friend of a Friend', 'angielski', '103', '3'), ('Sister', 'angielski', '104', '3'), ('Scream', 'angielski', '105', '3'), 
+('Love Is Forever', 'angielski, francuski', '106', '3'), ('Say Na Na Na', 'angielski', '107', '3'), ('Proud', 'angielski', '108', '3'), ('Too Late for Love', 'angielski', '109', '3'), ('Sebi', 'słoweński', '110', '3'), 
+('Replay', 'angielski', '111', '3'), ('Arcade', 'angielski', '112', '3'), ('Better Love', 'angielski', '113', '3'), ('Home', 'angielski', '114', '3'), ('Spirit in the Sky', 'angielski', '115', '3'), 
+('Bigger than Us', 'angielski', '116', '3'), ('Hatrið mun sigra', 'islandzki', '117', '3'), ('Storm', 'angielski', '118', '3'), ('Like It', 'angielski', '119', '3'), ('Truth', 'angielski', '120', '3'), 
+('Roi', 'francuski, angielski', '121', '3'), ('Soldi', 'włoski', '122', '3'), ('Kruna', 'serbski', '123', '3'), ('She Got Me', 'angielski', '124', '3'), ('Zero Gravity', 'angielski', '125', '3'), 
+('La venda', 'hiszpański', '126', '3');
 
 
 UPDATE roczniki SET uczestnik_id = 26 WHERE rok_id = 1;
@@ -233,9 +253,19 @@ UPDATE roczniki SET uczestnik_id = 112 WHERE rok_id = 3;
 UPDATE roczniki SET piosenka_id = 112 WHERE rok_id = 3;
 
 
+ALTER TABLE uczestnicy ADD CONSTRAINT uczestnik_rocznik_fk FOREIGN KEY(rok_id) REFERENCES roczniki(rok_id);
+ALTER TABLE uczestnicy ADD CONSTRAINT uczestnik_kraj_fk FOREIGN KEY(kraj_id) REFERENCES kraje(kraj_id);
 
+ALTER TABLE piosenki ADD CONSTRAINT piosenka_rocznik_fk FOREIGN KEY(rok_id) REFERENCES roczniki(rok_id);
 
+ALTER TABLE roczniki ADD CONSTRAINT rocznik_kraj_fk FOREIGN KEY(kraj_id) REFERENCES kraje(kraj_id);
 
+ALTER TABLE daty ADD CONSTRAINT daty_rocznik_fk FOREIGN KEY(rok_id) REFERENCES roczniki(rok_id);
+
+ALTER TABLE eliminacje ADD CONSTRAINT eliminacje_uczestnik_fk FOREIGN KEY(uczestnik_id) REFERENCES uczestnicy(uczestnik_id);
+ALTER TABLE eliminacje ADD CONSTRAINT eliminacje_rocznik_fk FOREIGN KEY(rok_id) REFERENCES roczniki(rok_id);
+ALTER TABLE eliminacje ADD CONSTRAINT eliminacje_wynik_fk FOREIGN KEY(wynik_id) REFERENCES wyniki(wynik_id);
+ALTER TABLE eliminacje ADD CONSTRAINT eliminacje_data_fk FOREIGN KEY(daty_id) REFERENCES daty(daty_id);
 
 
 CREATE USER 'eurowizja'@'localhost' IDENTIFIED BY 'eurowizja';
