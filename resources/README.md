@@ -397,13 +397,13 @@ Przed uruchomieniem aplikacji należy najpierw załadować bazę do mysql.
 DRZEWO INTERAKCJI
 ```java
 // 1. Sprawdź kto wygrał w latach 2017-2019
-    // Wyświetlanie zwycięzców w latach 2017 - 2019
-// 2. Sprawdz ile uczestnikow brało udzial w latach 2017-2019
-    // Wyświetlanie liczby uczestników w poszczególnych latach
-// 3. Pokaz wszystkich uczestników wykonujących piosenki nie w języku angielskim
-    // Wyświetlanie uczestników i iche piosenki, które nie są wyłącznie w języku angielskim
+    // Wyświetlenie zwycięzców w latach 2017 - 2019
+// 2. Sprawdź ile uczestnikow brało udział w latach 2017-2019
+    // Wyświetlenie liczby uczestników w poszczególnych latach
+// 3. Pokaż wszystkich uczestników wykonujących piosenki nie w języku angielskim
+    // Wyświetlenie uczestników i ich piosenki, które nie są wyłącznie w języku angielskim
 // 4. Sprawdź ile razy dane państwo brało udział w konkursie
-    // Wyświetlanie listy wszystkich państw
+    // Wyświetlenie listy wszystkich państw
     // Wybierz państwo z listy
     // Wyświetlenie liczby wystąpień państwa w konkursie
 // 5. Wybierz rok Eurowizji
@@ -416,11 +416,11 @@ DRZEWO INTERAKCJI
     // 4. Pokaż wszystkich uczestników w kolejności alfabetycznej. 
         // Wyświetlenie listy uczestników z danego roku w kolejności alfabetycznej
     // 5. Kto był w półfinale 1? 
-        // Wyświetlernie listy uczestników z danego roku znajdującyhc się w półfinale 1
+        // Wyświetlenie listy uczestników z danego roku znajdujących się w półfinale 1
     // 6. Kto był w półfinale 2? 
-        // Wyświetlernie listy uczestników z danego roku znajdującyhc się w półfinale 2
+        // Wyświetlenie listy uczestników z danego roku znajdujących się w półfinale 2
     // 7. Kto był w finale? 
-        // Wyświetlernie listy uczestników z danego roku znajdującyhc się w finale
+        // Wyświetlenie listy uczestników z danego roku znajdujących się w finale
     // 8. Ile było uczestników półfinału 1, półfinału 2, finału?
         // Wyświetlenie informacji o liczbie uczestników z danego roku w każdym etapie eliminacji
     // 9. Ile było uczestników Eurowizji? 
