@@ -397,7 +397,7 @@ try :
 					for record in results :
 						punkt=record[0]
 
-					if	punkt== 1:
+					if punkt== 1:
     						print("\nUczestnik dostał się do finału")	
 					elif punkt== 0:
     						print("\nUczestnika nie ma w finale")
