@@ -7,7 +7,6 @@ CREATE TABLE roczniki (
     rok int,
     slogan varchar (50),
     miasto_host varchar (50),
-    kraj_id int,
     uczestnik_id int, /* id tego uczestnika, który wygrał */
     piosenka_id int, /* id zwycięzkiej piosenki */
 
