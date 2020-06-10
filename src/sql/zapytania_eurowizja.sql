@@ -386,6 +386,8 @@ WHERE rok_id=3;
 
 -- 10
 -- sprawdz czy uczestnik dostal sie do finalu
+-- zapytanie dla poszczególnych roczników rózni się wartością eliminacje.rok_id
+-- dla 2019 rok_id=3 , dla 2018 rok_id=2, dla 2017 rok_id=1
 -- wyswietlam wszystkich uczestnikow w danym roku
 SELECT 
 	uczestnicy.uczestnik
@@ -405,7 +407,8 @@ AND eliminacje.rok_id = 1;
 
 -- 11
 -- pokaz kto miał największą liczbę punktów a kto najmniejszą w finale
-
+-- zapytanie dla poszczególnych roczników rózni się wartością eliminacje.rok_id
+-- dla 2019 rok_id=3 , dla 2018 rok_id=2, dla 2017 rok_id=1
 -- najwieksza
 
 SELECT
