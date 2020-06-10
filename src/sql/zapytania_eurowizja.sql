@@ -112,16 +112,16 @@ LIMIT 3;
 -- rok 2017
 SELECT 
 	roczniki.rok,
-    roczniki.miasto_host,
-    roczniki.slogan
+    	roczniki.miasto_host,
+    	roczniki.slogan
 FROM roczniki
 WHERE roczniki.rok_id = 1;
 
 -- rok 2018
 SELECT 
 	roczniki.rok,
-    roczniki.miasto_host,
-    roczniki.slogan
+   	roczniki.miasto_host,
+    	roczniki.slogan
 FROM roczniki
 WHERE roczniki.rok_id = 2;
 
@@ -129,8 +129,149 @@ WHERE roczniki.rok_id = 2;
 -- rok 2019
 SELECT 
 	roczniki.rok,
-    roczniki.miasto_host,
-    roczniki.slogan
+    	roczniki.miasto_host,
+    	roczniki.slogan
 FROM roczniki
 WHERE roczniki.rok_id = 3;
+
+
+-- 3
+--  kiedy odbył się final polfinal1 i polfinal2 rok 2017
+SELECT
+	daty.data_,
+	roczniki.rok
+FROM daty
+INNER JOIN roczniki
+ON roczniki.rok_id=daty.rok_id
+WHERE daty.rok_id=1
+ORDER By daty.daty_id;
+
+
+-- final polfinal1 i polfinal2 rok 2018
+SELECT
+	daty.data_,
+	roczniki.rok
+FROM daty
+INNER JOIN roczniki
+ON roczniki.rok_id=daty.rok_id
+WHERE daty.rok_id=2
+ORDER By daty.daty_id;
+
+-- final polfinal1 i polfinal2 rok 2019
+SELECT
+	daty.data_,
+	roczniki.rok
+FROM daty
+INNER JOIN roczniki
+ON roczniki.rok_id=daty.rok_id
+WHERE daty.rok_id=3
+ORDER By daty.daty_id;
+
+
+
+
+
+
+-- 5 Kto byl w półfinale 1
+-- rok 2017
+SELECT
+	roczniki.rok,
+    uczestnicy.uczestnik,
+    kraje.kraj
+FROM uczestnicy
+INNER JOIN roczniki
+ON roczniki.rok_id=uczestnicy.rok_id
+INNER JOIN kraje
+ON kraje.kraj_id=uczestnicy.kraj_id
+INNER JOIN eliminacje
+ON eliminacje.uczestnik_id=uczestnicy.uczestnik_id
+WHERE uczestnicy.rok_id = 1
+AND eliminacje.etap = 'półfinał 1';
+
+
+-- rok 2018
+SELECT
+	roczniki.rok,
+    uczestnicy.uczestnik,
+    kraje.kraj
+FROM uczestnicy
+INNER JOIN roczniki
+ON roczniki.rok_id=uczestnicy.rok_id
+INNER JOIN kraje
+ON kraje.kraj_id=uczestnicy.kraj_id
+INNER JOIN eliminacje
+ON eliminacje.uczestnik_id=uczestnicy.uczestnik_id
+WHERE uczestnicy.rok_id = 2
+AND eliminacje.etap = 'półfinał 1';
+
+-- rok 2019
+SELECT
+	roczniki.rok,
+    uczestnicy.uczestnik,
+    kraje.kraj
+FROM uczestnicy
+INNER JOIN roczniki
+ON roczniki.rok_id=uczestnicy.rok_id
+INNER JOIN kraje
+ON kraje.kraj_id=uczestnicy.kraj_id
+INNER JOIN eliminacje
+ON eliminacje.uczestnik_id=uczestnicy.uczestnik_id
+WHERE uczestnicy.rok_id = 3
+AND eliminacje.etap = 'półfinał 1';
+
+
+
+
+
+
+-- 7 Kto byl w finale
+-- rok 2017
+SELECT
+	roczniki.rok,
+    uczestnicy.uczestnik,
+    kraje.kraj
+FROM uczestnicy
+INNER JOIN roczniki
+ON roczniki.rok_id=uczestnicy.rok_id
+INNER JOIN kraje
+ON kraje.kraj_id=uczestnicy.kraj_id
+INNER JOIN eliminacje
+ON eliminacje.uczestnik_id=uczestnicy.uczestnik_id
+WHERE uczestnicy.rok_id = 1
+AND eliminacje.etap = 'finał';
+
+-- rok 2018
+SELECT
+	roczniki.rok,
+    uczestnicy.uczestnik,
+    kraje.kraj
+FROM uczestnicy
+INNER JOIN roczniki
+ON roczniki.rok_id=uczestnicy.rok_id
+INNER JOIN kraje
+ON kraje.kraj_id=uczestnicy.kraj_id
+INNER JOIN eliminacje
+ON eliminacje.uczestnik_id=uczestnicy.uczestnik_id
+WHERE uczestnicy.rok_id = 2
+AND eliminacje.etap = 'finał';
+
+
+-- rok 2019
+SELECT
+	roczniki.rok,
+    uczestnicy.uczestnik,
+    kraje.kraj
+FROM uczestnicy
+INNER JOIN roczniki
+ON roczniki.rok_id=uczestnicy.rok_id
+INNER JOIN kraje
+ON kraje.kraj_id=uczestnicy.kraj_id
+INNER JOIN eliminacje
+ON eliminacje.uczestnik_id=uczestnicy.uczestnik_id
+WHERE uczestnicy.rok_id = 3
+AND eliminacje.etap = 'finał';
+
+
+
+
 
