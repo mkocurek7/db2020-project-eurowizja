@@ -56,3 +56,49 @@ sql3_9=" SELECT COUNT(uczestnicy.uczestnik) AS ilość_uczestników FROM uczestn
 sql3_10=" SELECT uczestnicy.uczestnik FROM uczestnicy WHERE uczestnicy.rok_id = 1 "
 sql3_11a=" SELECT uczestnicy.uczestnik, wyniki.punkty as max_wynik, eliminacje.etap FROM uczestnicy INNER JOIN eliminacje ON eliminacje.uczestnik_id = uczestnicy.uczestnik_id INNER JOIN wyniki ON eliminacje.wynik_id = wyniki.wynik_id WHERE eliminacje.rok_id = 1 AND wyniki.punkty IN (SELECT MAX(wyniki.punkty) FROM wyniki INNER JOIN eliminacje ON eliminacje.wynik_id = wyniki.wynik_id WHERE eliminacje.rok_id = 1 AND eliminacje.etap = 'finał') "
 sql3_11b=" SELECT uczestnicy.uczestnik, wyniki.punkty as min_wynik, eliminacje.etap FROM uczestnicy INNER JOIN eliminacje ON eliminacje.uczestnik_id = uczestnicy.uczestnik_id INNER JOIN wyniki ON eliminacje.wynik_id = wyniki.wynik_id WHERE eliminacje.rok_id = 1 AND wyniki.punkty IN (SELECT MIN(wyniki.punkty) FROM wyniki INNER JOIN eliminacje ON eliminacje.wynik_id = wyniki.wynik_id WHERE eliminacje.rok_id = 1 AND eliminacje.etap = 'finał') "
+
+
+try :	
+	cursor.execute( sql )
+	
+	while True:
+
+		#label: poczatek
+		print("\n************************ EUROWIZJA ************************\n")
+		print("1. Sprawdź kto wygrał w latach 2017-2019")
+		print("2. Sprawdz ile uczestnikow bralo udzial w latach 2017-2019")
+		print("3. Pokaz wszystkich uczestników wykonujących piosenki nie w języku angielskim")
+		print("4. Sprawdź ile razy dane państwo brało udział w konkursie")
+		print("5. Wybierz rok Eurowizji.")
+		print("6. Wyjdź z programu")
+		wybor=input("\nWybór opcji: ")
+		
+		if wybor=='1':
+			print("\n******************** Zwycięzcy Eurowizji ********************\n")
+			cursor.execute( sql1 )
+			results=cursor.fetchall()
+			print(tabulate(results,headers= ["Uczestnik", "Tytuł piosenki", "Kraj", "Rok"], tablefmt='psql'))
+
+		elif wybor=='2':
+			print("\n*********** Ilosc uczestnikow w podanych latach ***********\n")
+			cursor.execute( sql2 )
+			results=cursor.fetchall()
+			print(tabulate(results,headers= ["Rok", "Ilość uczestników"], tablefmt='psql'))
+
+		elif wybor=='3':
+			print("\n*********** Nieanglojęzyczne utwory ***********\n")
+			cursor.execute( sql3 )
+			results=cursor.fetchall()
+			print(tabulate(results,headers=["Uczestnik", "Tytuł piosenki", "Język"], tablefmt='psql'))
+
+		elif wybor=='4':
+			print("\n*********** Ilość wystąpień kraju w Eurowizji ***********\n")
+			sql4a="SELECT kraje.kraj FROM kraje"
+			cursor.execute( sql4a )
+			results=cursor.fetchall()
+			print(tabulate(results,headers=["Kraje"], tablefmt='psql'))
+
+			kraj = input("\n Podaj kraj z listy: ")
+			cursor.execute(" SELECT COUNT(uczestnicy.uczestnik) as liczba_wystąpień FROM uczestnicy INNER JOIN kraje ON uczestnicy.kraj_id = kraje.kraj_id WHERE kraje.kraj = %s GROUP BY uczestnicy.kraj_id ", [kraj] )
+			results=cursor.fetchall()
+			print(tabulate(results,headers=["Liczba wystąpień"], tablefmt='psql'))
