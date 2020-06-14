@@ -389,6 +389,31 @@ ON eliminacje.wynik_id = wyniki.wynik_id
 WHERE eliminacje.rok_id = 1
 AND eliminacje.etap = 'finał')
 ```
+
+12. Uczestnicy biorący udział w Eurowizji spoza Europy
+  * za pomocą INTERSECT (zapytanie nie działa z mysql)
+```sql
+SELECT kraje.kraj_id, kraje.kontynent, uczestnicy.uczestnik
+FROM kraje
+INNER JOIN uczestnicy
+ON kraje.kraj_id = uczestnicy.kraj_id
+WHERE kraje.kontynent != 'Europa'
+INTERSECT
+SELECT uczestnicy.kraj_id, kraje.kontynent, uczestnicy.uczestnik
+FROM uczestnicy
+INNER JOIN kraje
+ON kraje.kraj_id = uczestnicy.kraj_id
+WHERE uczestnicy.rok_id = 1;
+```
+  * mozna zamienić INTERSECT na INNER JOIN w przypadku, gdy MYSQL nie wspiera komendy INTERSECT
+```sql
+SELECT kraje.kraj_id, kraje.kontynent, uczestnicy.uczestnik
+FROM kraje
+INNER JOIN uczestnicy
+ON kraje.kraj_id = uczestnicy.kraj_id
+WHERE kraje.kontynent != 'Europa'
+AND uczestnicy.rok_id = 1;
+```
   
 ## Aplikacja
 Aplikacja została napisania w języku Python z użyciem biblioteki PyMySQL. Do uruchomienia aplikacji wymagana jest instalacja biblioteki PyMySQL, biblioteki tabulate oraz zainstalowanie mysql-connector.
@@ -433,6 +458,8 @@ DRZEWO INTERAKCJI
     // 11. Pokaz kto miał największą i najmniejszą liczbę punktów w finale
         // Wyświetlenie uczestnika z największą liczą punktów w danym roku
         // Wyświetlenie uczestnika z najmniejszą liczą punktów w danym roku
+    // 12. Pokaz uczestników eurowizji spoza Europy
+    	// Wyświetlenie listy uczestników przypisanych do kraju nie znajdującego się na kontynencie europejskim
 // 6. Wyjdź z programu
     // przerwanie nieskończonej pętli i zakończenie działania programu
     // break
