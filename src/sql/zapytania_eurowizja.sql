@@ -449,3 +449,29 @@ INNER JOIN eliminacje
 ON eliminacje.wynik_id = wyniki.wynik_id
 WHERE eliminacje.rok_id = 1
 AND eliminacje.etap = 'finał');
+
+
+-- 12 
+-- Pokaz uczestników eurowizji spoza Europy
+-- zapytanie dla poszczególnych roczników rózni się wartością uczestnicy.rok_id
+-- dla 2019 rok_id=3 , dla 2018 rok_id=2, dla 2017 rok_id=1
+SELECT kraje.kraj_id, kraje.kontynent, uczestnicy.uczestnik
+FROM kraje
+INNER JOIN uczestnicy
+ON kraje.kraj_id = uczestnicy.kraj_id
+WHERE kraje.kontynent != 'Europa'
+INTERSECT
+SELECT uczestnicy.kraj_id, kraje.kontynent, uczestnicy.uczestnik
+FROM uczestnicy
+INNER JOIN kraje
+ON kraje.kraj_id = uczestnicy.kraj_id
+WHERE uczestnicy.rok_id = 1;
+
+--mozna zamienic intersect na inner join
+SELECT kraje.kraj_id, kraje.kontynent, uczestnicy.uczestnik
+FROM kraje
+INNER JOIN uczestnicy
+ON kraje.kraj_id = uczestnicy.kraj_id
+WHERE kraje.kontynent != 'Europa'
+AND uczestnicy.rok_id = 1;
+
